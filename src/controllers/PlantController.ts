@@ -34,7 +34,6 @@ class PlantController {
     
     try {
       const plantEntity = await this.plantService.create(req.body);
-      console.log("PlantController - plantEntity : ", plantEntity);
       const plant = mapPlantEntity(plantEntity);
       res.send({ status: "OK", data: plant });
     } catch (error) {

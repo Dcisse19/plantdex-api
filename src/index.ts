@@ -3,6 +3,7 @@ import cors from 'cors';
 import AppDataSource from './data-source';
 import plantRouter from './routes/PlantRoutes';
 import categoryRouter from './routes/CategoryRoutes';
+import userRouter from './routes/UserRoutes';
 AppDataSource.initialize()
   .then(() => {
     const app = express();
@@ -17,6 +18,7 @@ AppDataSource.initialize()
 
     app.use("/api/plants", plantRouter);
     app.use("/api/categories", categoryRouter);
+    app.use("/api/users", userRouter);
 
     app.listen(process.env.PORT, () => {
       console.log(
