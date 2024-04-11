@@ -20,7 +20,7 @@ export class PlantEntity {
     @Column({ nullable: false })
     plant_image?: string;
 
-    @ManyToOne((type) => CategoryEntity, (categorie) => categorie.plants, {cascade: ["remove", "update", "insert"]})
+    @ManyToOne((type) => CategoryEntity, (categorie) => categorie.plants, { onDelete: 'CASCADE', orphanedRowAction: 'delete' })
     @JoinColumn({ name: "id_categorie" })
     categorie?: CategoryEntity; 
 }

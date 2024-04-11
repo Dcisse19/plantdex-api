@@ -9,7 +9,7 @@ export class CategoryEntity {
     @Column({ nullable: false })
     nom?: string;
 
-    @OneToMany((type) => PlantEntity, (plant) => plant.categorie)
+    @OneToMany((type) => PlantEntity, (plant) => plant.categorie, {cascade: true})
     plants?: PlantEntity[];
 
     public deletePlants(plants: PlantEntity[]){
